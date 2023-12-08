@@ -1,0 +1,21 @@
+
+services:
+  app:
+    image: this-stream-is-lit:app
+    environment:
+      - REDIS_HOST=redis
+      - RSTREAM_ID=this-stream-is-lit
+      
+    ports:
+      - 7890:7890
+
+  data-pump:
+    image: this-stream-is-lit:pump
+    environment:
+      - REDIS_HOST=redis
+      - RSTREAM_ID=this-stream-is-lit
+
+  redis:
+    image: redis:latest
+
+
